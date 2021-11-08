@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lucrarea01.Domain
+namespace Exemple.Domain.Models
 {
-    public record ValidatedProduse(ProdusID ProdusID, ProdusCantitate ProdusCantitate);
+    public record UnvalidatedProductQuantity(string cod, string quantity, string address);
 }

@@ -78,7 +78,7 @@ namespace Exemple.Domain
             new PaidCarucior(calculatedPrice.ProductList, DateTime.Now, calculatedPrice.ProductList.Aggregate(new StringBuilder(), CreateCsvLine).ToString());
 
         private static StringBuilder CreateCsvLine(StringBuilder export, CalculatedPrice Cos) =>
-            export.AppendLine($"{Cos.ProductCode.Value}, {Cos.Quantity}, {Cos.price}, {Cos.price}");
+            export.AppendLine($"{Cos.ProductCode.Value}, {Cos.Quantity}, {Cos.price}, {Cos.address}");
 
     }
 }

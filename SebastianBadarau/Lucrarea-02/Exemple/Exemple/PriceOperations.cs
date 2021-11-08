@@ -15,6 +15,7 @@ namespace Exemple.Domain
             List<ValidatedProduct> validatedProduct = new();
             bool isValidList = true;
             string invalidReson = string.Empty;
+
             foreach (var unvalidatedProduct in product.ProductList)
             {
                 if (!Quantity.TryParseQuantity(unvalidatedProduct.quantity, out Quantity quantity))
@@ -23,18 +24,25 @@ namespace Exemple.Domain
                     isValidList = false;
                     break;
                 }
+                else
+                {
+                    //verificare stocului pt acel produs in baza de date...
+                }
+
                 if (!Adresa.TryParse(unvalidatedProduct.address, out Adresa adress))
                 {
                     invalidReson = $"Invalid address ({unvalidatedProduct.cod}, {unvalidatedProduct.address})";
                     isValidList = false;
                     break;
                 }
+
                 if (!ProductCode.TryParse(unvalidatedProduct.cod, out ProductCode code))
                 {
                     invalidReson = $"Invalid product code ({unvalidatedProduct.cod})";
                     isValidList = false;
                     break;
                 }
+
                 ValidatedProduct validProduct = new(code, quantity, adress);
                 validatedProduct.Add(validProduct);
             }

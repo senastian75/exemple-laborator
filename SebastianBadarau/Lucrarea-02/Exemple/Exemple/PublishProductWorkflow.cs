@@ -10,8 +10,8 @@ namespace Exemple.Domain
     {
         public IPaidCarucioredEvent Execute(PublishQuantityCommand command, Func<ProductCode, bool> checkProductExists)
         {
-            UnvalidatedProduct unvalidatedGrades = new UnvalidatedProduct(command.InputQuantity);
-            ICarucior products = ValidateProduct(checkProductExists, unvalidatedGrades);
+            UnvalidatedProduct unvalidatedProducts = new UnvalidatedProduct(command.InputQuantity);
+            ICarucior products = ValidateProduct(checkProductExists, unvalidatedProducts);
             products = CalculatePrice(products);
             products = PaidCarucior(products);
 
